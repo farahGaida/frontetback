@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AnnonceService {
 
-  private apiUrl = 'http://localhost:8085/api/annonces'; // URL de ton backend Spring Boot
+  private apiUrl = 'http://localhost:8085/api/annonces'; 
 
   constructor(private http: HttpClient) { }
 
@@ -16,5 +16,4 @@ export class AnnonceService {
     return this.http.post(this.apiUrl, annonceData);
   }
 
-  // (optionnel plus tard) Méthodes pour récupérer, modifier, supprimer...
 }
