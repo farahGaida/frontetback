@@ -1,0 +1,85 @@
+<!-- Navbar -->
+<nav *ngIf="!isDashboardPage" appNavbarStyle [fixedColorRoutes]="['/sale', '/rent']"
+     class="fixed top-0 left-0 w-full transition-all duration-500 z-50 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+      <div class="flex items-center">
+        <a href="/" class="text-4xl font-logo text-white tracking-wide">ImmoZone</a>
+      </div>
+      <div class="hidden md:flex space-x-8 items-center">
+        <a routerLink="/" routerLinkActive="font-bold border-b-2 border-white" class="text-white hover:scale-110 transition transform duration-300">
+          Home
+        </a>
+        <a routerLink="/sale" routerLinkActive="font-bold border-b-2 border-white" class="text-white hover:scale-110 transition transform duration-300">
+          For Sale
+        </a>
+        <a routerLink="/rent" routerLinkActive="font-bold border-b-2 border-white" class="text-white hover:scale-110 transition transform duration-300">
+          Rent
+        </a>
+        <a routerLink="/contact" routerLinkActive="font-bold border-b-2 border-white" class="text-white hover:scale-110 transition transform duration-300">
+          Contact
+        </a>
+        <a routerLink="/login" routerLinkActive="font-bold border-b-2 border-white" class="text-white hover:scale-110 transition transform duration-300">
+          Login
+        </a>
+      </div>
+      <div class="md:hidden flex items-center">
+        <button (click)="toggleMenu()" class="text-white focus:outline-none">
+          <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="isMenuOpen" class="md:hidden bg-white shadow-lg rounded-b-lg px-4 py-6 space-y-4">
+      <a routerLink="/" (click)="toggleMenu()" class="block text-blue-700 text-lg font-semibold hover:text-indigo-600">Home</a>
+      <a routerLink="/sale" (click)="toggleMenu()" class="block text-blue-700 text-lg font-semibold hover:text-indigo-600">For sale</a>
+      <a routerLink="/rent" (click)="toggleMenu()" class="block text-blue-700 text-lg font-semibold hover:text-indigo-600">Rent</a>
+      <a routerLink="/contact" (click)="toggleMenu()" class="block text-blue-700 text-lg font-semibold hover:text-indigo-600">Contact</a>
+      <a routerLink="/login" (click)="toggleMenu()" class="block text-blue-700 text-lg font-semibold hover:text-indigo-600">Login</a>
+    </div>
+</nav>
+
+<!-- Ton contenu -->
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Footer -->
+<footer *ngIf="!isDashboardPage" class="bg-gradient-to-r from-indigo-600 to-indigo-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-12 text-center">
+        <div>
+          <h3 class="text-2xl font-semibold mb-4">About ImmoZone</h3>
+          <p class="text-lg mb-4">Your trusted real estate platform to explore buying, selling, and renting properties.</p>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-lg">
+            <li><a href="#" class="hover:text-indigo-300">Home</a></li>
+            <li><a href="#" class="hover:text-indigo-300">Listings</a></li>
+            <li><a href="#" class="hover:text-indigo-300">About</a></li>
+            <li><a href="#" class="hover:text-indigo-300">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-4">Contact Us</h3>
+          <p class="text-lg mb-4">We are here to assist you with any questions or information you may need.</p>
+          <div class="space-y-4">
+            <p class="text-lg"><strong> Email : </strong> contact@immozone.com</p>
+            <p class="text-lg"><strong>Phone : </strong> +216 22 333 444</p>
+            <p class="text-lg"><strong>Address : </strong> 123 Rue de l'Immobilier, Paris, France</p>
+          </div>
+          <div class="mt-6">
+            <a href="/contact" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg">Nous contacter</a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 border-t border-indigo-400 pt-6 text-center">
+        <p class="text-lg">&copy; 2025 ImmoZone. All Rights Reserved.</p>
+        <p class="text-sm text-indigo-300">Created with ❤️ for seamless real estate experiences.</p>
+      </div>
+    </div>
+</footer>
