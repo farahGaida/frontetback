@@ -1,0 +1,14 @@
+# Angular
+ImmoZoneFront/node_modules/
+ImmoZoneFront/dist/
+
+# Spring Boot
+immozone-backend/target/
+
+# IDE files
+*.iml
+.idea/
+.vscode/
+
+# System files
+.DS_Store
